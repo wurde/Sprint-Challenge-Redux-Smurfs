@@ -20,10 +20,10 @@ const initialState = {
 }
 
 /**
- * Define reducer
+ * Define reducers
  */
 
-function reducer(state = initialState, action) {
+function reducers(state = initialState, action) {
   switch (action.type) {
     default:
       return state
@@ -31,7 +31,7 @@ function reducer(state = initialState, action) {
 }
 
 /**
- * Export reducer
+ * Export reducers
  */
 
-module.exports = reducer
+module.exports = reducers

@@ -51,15 +51,15 @@ class NewSmurfForm extends Component {
               <input type="text" name="name" value={this.state.name}
                      onChange={this.handleOnChange}
                      placeholder="Name"
-                     className="form-control mb-2"></input>
+                     className="form-control mb-2" required></input>
               <input type="text" name="height" value={this.state.height}
                      onChange={this.handleOnChange}
                      placeholder="Height"
-                     className="form-control mb-2"></input>
+                     className="form-control mb-2" required></input>
               <input type="text" name="age" value={this.state.age}
                      onChange={this.handleOnChange}
                      placeholder="Age"
-                     className="form-control mb-2"></input>
+                     className="form-control mb-2" required></input>
 
               <button type="submit" className="btn btn-block btn-primary">Add Smurf</button>
             </form>

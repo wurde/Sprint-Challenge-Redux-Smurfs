@@ -40,11 +40,20 @@ class SmurfList extends Component {
   render() {
     return (
       <SmurfListStyle>
-        <ul>
-          {(this.props.smurfs) ?
-            this.props.smurfs.map(smurf => <li key={smurf.id}><Smurf {...smurf} /></li>) :
-            <CircularProgress />}
-        </ul>
+        <div class="row justify-content-center">
+          <div class="col-10 col-md-6 col-lg-4 py-3">
+            {(this.props.smurfs) ?
+              this.props.smurfs.map(smurf => {
+                return (
+                  <div key={smurf.id} className="card my-2">
+                    <div className="card-body">
+                      <Smurf {...smurf} />
+                    </div>
+                  </div>
+                )}) :
+              <CircularProgress />}
+          </div>
+        </div>
       </SmurfListStyle>
     )
   }

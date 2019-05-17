@@ -5,12 +5,14 @@
  */
 
 const React = require('react')
+const styles = require('./styles/index')
 
 /**
  * Constants
  */
 
 const Component = React.Component
+const SmurfStyle = styles.SmurfStyle
 
 /**
  * Define component
@@ -18,7 +20,7 @@ const Component = React.Component
 
 function Smurf({ name, age, height, id }) {
   return (
-    <li>{name} ({age}) {height}</li>
+    <SmurfStyle>{name} ({age}) {height}</SmurfStyle>
   )
 }
 

@@ -24,7 +24,7 @@ function LandingView() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1>SMURFS! 2.0 W/ Redux</h1>
+            <h1 style={{ textAlign: 'center' }}>SMURFS! 2.0 W/ Redux</h1>
 
             <NewSmurfForm />
             <SmurfList />

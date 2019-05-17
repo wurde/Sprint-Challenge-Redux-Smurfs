@@ -12,10 +12,10 @@ const actions = require('../actions/index')
 
 const initialState = {
   smurfs: [],
-  fetchingSmurfs: false,
-  addingSmurf: false,
-  updatingSmurf: false,
-  deletingSmurf: false,
+  isFetchingSmurfs: false,
+  isCreatingSmurf: false,
+  isUpdatingSmurf: false,
+  isDeletingSmurf: false,
   error: null,
 }
 

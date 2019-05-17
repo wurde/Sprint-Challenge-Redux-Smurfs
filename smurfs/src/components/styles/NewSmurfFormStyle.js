@@ -61,6 +61,12 @@ const NewSmurfFormStyle = styled.div(() => `
     border-color: #007bff;
   }
 
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
   .btn-block {
     display: block;
     width: 100%;

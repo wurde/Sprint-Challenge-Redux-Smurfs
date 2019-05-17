@@ -20,6 +20,7 @@ const SmurfListStyle = styles.SmurfListStyle
 const CircularProgress = material_ui.CircularProgress
 const connect = react_redux.connect
 const getSmurfs = actions.getSmurfs
+const deleteSmurf = actions.deleteSmurf
 
 /**
  * Define component
@@ -37,17 +38,26 @@ class SmurfList extends Component {
     this.props.getSmurfs()
   }
 
+  handleDeleteSmurf = (id) => {
+    let yes = window.confirm("Are you sure?")
+
+    if (yes) {
+      this.props.deleteSmurf(id)
+    }
+  }
+
   render() {
     return (
       <SmurfListStyle>
         <div class="row justify-content-center">
-          <div class="col-10 col-md-6 col-lg-4 py-3">
+          <div class="col-10 col-md-6 col-lg-4 py-3 text-center">
             {(this.props.smurfs) ?
               this.props.smurfs.map(smurf => {
                 return (
                   <div key={smurf.id} className="card my-2">
                     <div className="card-body">
                       <Smurf {...smurf} />
+                      <span className='btn btn-link' onClick={() => this.handleDeleteSmurf(smurf.id)}>x</span>
                     </div>
                   </div>
                 )}) :
@@ -73,4 +83,4 @@ const mapStateToProps = (state) => {
  * Export component
  */
 
-module.exports = connect(mapStateToProps, { getSmurfs })(SmurfList)
+module.exports = connect(mapStateToProps, { getSmurfs, deleteSmurf })(SmurfList)

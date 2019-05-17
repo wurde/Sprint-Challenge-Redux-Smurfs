@@ -16,12 +16,9 @@ const FETCH_SMURFS_ERROR = 'FETCH_SMURFS_ERROR'
 const CREATE_SMURF_START = 'CREATE_SMURF_START'
 const CREATE_SMURF_SUCCESS = 'CREATE_SMURF_SUCCESS'
 const CREATE_SMURF_ERROR = 'CREATE_SMURF_ERROR'
-// const UPDATE_SMURF_START = 'UPDATE_SMURF_START'
-// const UPDATE_SMURF_SUCCESS = 'UPDATE_SMURF_SUCCESS'
-// const UPDATE_SMURF_ERROR = 'UPDATE_SMURF_ERROR'
-// const DELETE_SMURF_START = 'DELETE_SMURF_START'
-// const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS'
-// const DELETE_SMURF_ERROR = 'DELETE_SMURF_ERROR'
+const DELETE_SMURF_START = 'DELETE_SMURF_START'
+const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS'
+const DELETE_SMURF_ERROR = 'DELETE_SMURF_ERROR'
 
 /**
  * Define actions
@@ -47,6 +44,18 @@ const createSmurf = (smurf) => dispatch => {
     })
 }
 
+const deleteSmurf = (id) => dispatch => {
+  dispatch({ type: DELETE_SMURF_START })
+
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data })
+    })
+    .catch(err => {
+      dispatch({ type: DELETE_SMURF_ERROR, payload: err.response.message })
+    })
+}
+
 /**
  * Export actions
  */
@@ -60,4 +69,8 @@ module.exports = {
   CREATE_SMURF_SUCCESS,
   CREATE_SMURF_ERROR,
   createSmurf: createSmurf,
+  DELETE_SMURF_START,
+  DELETE_SMURF_SUCCESS,
+  DELETE_SMURF_ERROR,
+  deleteSmurf: deleteSmurf,
 }

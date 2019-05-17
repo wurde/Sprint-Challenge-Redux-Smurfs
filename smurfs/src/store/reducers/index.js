@@ -14,7 +14,6 @@ const initialState = {
   smurfs: [],
   isFetchingSmurfs: false,
   isCreatingSmurf: false,
-  isUpdatingSmurf: false,
   isDeletingSmurf: false,
   error: null,
 }
@@ -55,6 +54,22 @@ function reducers(state = initialState, action) {
     case actions.CREATE_SMURF_ERROR:
       return Object.assign({}, state, {
         isCreatingSmurf: false,
+        error: action.payload
+      })
+    case actions.DELETE_SMURF_START:
+      return Object.assign({}, state, {
+        isDeletingSmurf: true,
+        error: ''
+      })
+    case actions.DELETE_SMURF_SUCCESS:
+      return Object.assign({}, state, {
+        isDeletingSmurf: false,
+        error: '',
+        smurfs: action.payload
+      })
+    case actions.DELETE_SMURF_ERROR:
+      return Object.assign({}, state, {
+        isDeletingSmurf: false,
         error: action.payload
       })
     default:

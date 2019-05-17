@@ -6,6 +6,8 @@
 
 const React = require('react')
 const react_redux = require('react-redux')
+const react_router_dom = require('react-router-dom')
+const routes = require('./routes/index')
 const store = require('./store/index')
 
 /**
@@ -13,6 +15,7 @@ const store = require('./store/index')
  */
 
 const Provider = react_redux.Provider
+const BrowserRouter = react_router_dom.BrowserRouter
 
 /**
  * Import component styles
@@ -27,18 +30,9 @@ require('./App.scss')
 function App() {
   return (
     <Provider store={store}>
-      <main>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1>SMURFS! 2.0 W/ Redux</h1>
-              <div>Welcome to your Redux version of Smurfs!</div>
-              <div>Start inside of your `src/index.js` file!</div>
-              <div>Have fun!</div>
-            </div>
-          </div>
-        </div>
-      </main>
+      <BrowserRouter>
+        <routes.RootRouter mount="/" />
+      </BrowserRouter>
     </Provider>
   )
 }

@@ -8,6 +8,13 @@ const React = require('react')
 const components = require('../components/index')
 
 /**
+ * Constants
+ */
+
+const NewSmurfForm = components.NewSmurfForm
+const SmurfList = components.SmurfList
+
+/**
  * Define view component
  */
 
@@ -18,9 +25,9 @@ function LandingView() {
         <div className="row">
           <div className="col-12">
             <h1>SMURFS! 2.0 W/ Redux</h1>
-            <div>Welcome to your Redux version of Smurfs!</div>
-            <div>Start inside of your `src/index.js` file!</div>
-            <div>Have fun!</div>
+
+            <NewSmurfForm />
+            <SmurfList />
           </div>
         </div>
       </div>

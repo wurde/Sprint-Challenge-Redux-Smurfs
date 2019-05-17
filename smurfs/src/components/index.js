@@ -4,4 +4,7 @@
  * Export components
  */
 
-module.exports = { }
+module.exports = {
+  NewSmurfForm: require('./NewSmurfForm'),
+  SmurfList: require('./SmurfList'),
+}

@@ -5,12 +5,16 @@
  */
 
 const React = require('react')
+const react_redux = require('react-redux')
+const actions = require('../store/actions/index')
 
 /**
  * Constants
  */
 
 const Component = React.Component
+const connect = react_redux.connect
+const getSmurfs = actions.getSmurfs
 
 /**
  * Define component
@@ -24,12 +28,27 @@ class SmurfList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.getSmurfs()
+  }
+
   render() {
     return (
-      <div>
-        SmurfList
-      </div>
+      <ul>
+        {this.props.smurfs &&
+          this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name} ({smurf.age}) {smurf.height}</li> )}
+      </ul>
     )
+  }
+}
+
+/**
+ * Define mapStateToProps
+ */
+
+const mapStateToProps = (state) => {
+  return {
+    smurfs: state.smurfs
   }
 }
 
@@ -37,4 +56,4 @@ class SmurfList extends Component {
  * Export component
  */
 
-module.exports = SmurfList
+module.exports = connect(mapStateToProps, { getSmurfs })(SmurfList)

@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "ava": "^1.4.1",
     "axios": "^0.18.0",
     "node-sass": "^4.12.0",

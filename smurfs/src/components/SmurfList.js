@@ -6,13 +6,16 @@
 
 const React = require('react')
 const react_redux = require('react-redux')
+const material_ui = require('@material-ui/core')
 const actions = require('../store/actions/index')
+const Smurf = require('./Smurf')
 
 /**
  * Constants
  */
 
 const Component = React.Component
+const CircularProgress = material_ui.CircularProgress
 const connect = react_redux.connect
 const getSmurfs = actions.getSmurfs
 
@@ -35,8 +38,9 @@ class SmurfList extends Component {
   render() {
     return (
       <ul>
-        {this.props.smurfs &&
-          this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name} ({smurf.age}) {smurf.height}</li> )}
+        {(this.props.smurfs) ?
+          this.props.smurfs.map(smurf => <Smurf key={smurf.id} {...smurf} />) :
+          <CircularProgress />}
       </ul>
     )
   }
